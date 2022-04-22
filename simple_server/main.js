@@ -35,7 +35,10 @@ app = http.createServer((req, res) => {
     });
     //Check whether a request route defined in the map
     if (routeResponseMap[req.url]) {
-      res.end(routeResponseMap[req.url]);
+      //res.end(routeResponseMap[req.url]);
+      // added a 2000 ms delay before the page loades
+      setTimeout(() => res.end(routeResponseMap[req.url]), 2000);
+
     } else {
       //response with HTML
       res.end("<h1>Welcome!</h1>");
